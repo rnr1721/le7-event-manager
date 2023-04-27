@@ -8,6 +8,7 @@ use Core\Interfaces\ListenerProvider;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use \RuntimeException;
 
 class EventDispatcher implements EventDispatcherInterface
 {
@@ -50,7 +51,10 @@ class EventDispatcher implements EventDispatcherInterface
 
         foreach ($this->provider->getListenersForEvent($event) as $listenerClass) {
             $listenerObject = $this->container->get($listenerClass);
-            $listenerObject->setObject($event->getObject());
+            $listenerObject->setEvent($event);
+            if (!method_exists($listenerObject, 'trigger')) {
+                throw new RuntimeException("Event listener must have trigger() method");
+            }
             $listenerObject->trigger();
             if ($canStop && $event->isPropagationStopped()) {
                 break;

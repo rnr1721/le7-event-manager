@@ -7,11 +7,11 @@ namespace Core\EventDispatcher;
 abstract class Listener
 {
 
-    protected mixed $object;
+    protected mixed $event;
 
-    public function setObject(mixed $object): void
+    public function setEvent(object $event): void
     {
-        $this->object = $object;
+        $this->event = $event;
     }
 
 }

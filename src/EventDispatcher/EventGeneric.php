@@ -9,13 +9,7 @@ use Psr\EventDispatcher\StoppableEventInterface;
 class EventGeneric implements StoppableEventInterface
 {
 
-    private mixed $object;
     private bool $propagationStopped = false;
-
-    public function __construct(mixed $object)
-    {
-        $this->object = $object;
-    }
 
     /**
      * If propagation is stopped
@@ -33,15 +27,6 @@ class EventGeneric implements StoppableEventInterface
     public function stopPropagation(): void
     {
         $this->propagationStopped = true;
-    }
-
-    /**
-     * Get current element
-     * @return mixed
-     */
-    public function getObject(): mixed
-    {
-        return $this->object;
     }
 
 }
