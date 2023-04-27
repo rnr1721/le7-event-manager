@@ -1,0 +1,42 @@
+{
+    "name": "rnr1721/le7-event-manager",
+    "description": "Simple event manager for le7 PHP MVC framework or any PSR PHP project",
+    "keywords": ["le7", "le7-framework", "framework", "events", "component"],
+    "authors": [
+        {
+            "name": "Eugeny G",
+            "email": "rnr1721@gmail.com",
+            "homepage": "https://xhamster.biz.ua",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Core\\Interfaces\\": "src/Interfaces",
+            "Core\\EventDispatcher\\": "src/EventDispatcher"
+        }
+    },
+    "provide": {
+        "psr/event-dispatcher-implementation": "^1.0"
+    },
+    "require": {
+        "php": ">=8.1",
+        "psr/event-dispatcher": "^1.0",
+        "psr/container": "^2.0"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.7",
+        "phpunit/phpunit": "^10.0"
+    },
+    "scripts": {
+        "test": [
+            "@phpunit",
+            "@psalm"
+        ],
+        "phpunit": "phpunit",
+        "psalm": "psalm"
+    }
+}
