@@ -4,13 +4,13 @@
 
 namespace Core\EventDispatcher\Providers;
 
-use Core\Interfaces\ListenerProvider;
+use Core\Interfaces\ListenerProviderInterface;
 use function array_keys;
 use function in_array;
 use function sprintf;
 use function usort;
 
-class ListenerProviderDefault implements ListenerProvider
+class ListenerProviderDefault implements ListenerProviderInterface
 {
 
     private array $listeners = [];

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Core\Interfaces;
 
-use Psr\EventDispatcher\ListenerProviderInterface;
+use Psr\EventDispatcher\ListenerProviderInterface as ListenerProvider;
 
-interface ListenerProvider extends ListenerProviderInterface
+interface ListenerProviderInterface extends ListenerProvider
 {
 
     /**

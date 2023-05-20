@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\EventDispatcher;
 
-use Core\Interfaces\ListenerProvider;
+use Core\Interfaces\ListenerProviderInterface;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -21,11 +21,11 @@ class EventDispatcher implements EventDispatcherInterface
 
     /**
      * Some listener provider
-     * @var ListenerProvider
+     * @var ListenerProviderInterface
      */
-    protected ListenerProvider $provider;
+    protected ListenerProviderInterface $provider;
 
-    public function __construct(ListenerProvider $provider, ContainerInterface $container)
+    public function __construct(ListenerProviderInterface $provider, ContainerInterface $container)
     {
         $this->provider = $provider;
         $this->container = $container;
